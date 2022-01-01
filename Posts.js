@@ -9,8 +9,8 @@ var postSchema = new Schema({
     conteudo: String,
     slug: String,
     autor: String,
-    views: Number
-
+    views: Number,
+    date: String
 
 }, {collection:"posts"})
 

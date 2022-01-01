@@ -9,8 +9,6 @@ const Posts = require("./Posts.js")
 
 var session = require("express-session") // sessao fixada
 
-
-
 mongoose.connect("mongodb+srv://root:uN8HRyTYQ9nc268v@cluster0.aqlj3.mongodb.net/dankicode?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology:true}).then(function(){
     console.log("Conectado com sucesso");      // Conexao com o banco de dados
 }).catch(function(err){
@@ -31,7 +29,6 @@ app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 app.use("/public", express.static(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "/pages"));
-
 
 app.get('/', (req, res)=>{
     console.log(req.query)
@@ -98,7 +95,8 @@ app.get("/:slug", (req, res)=>{
                         imagem: val.imagem,
                         slug: val.slug,
                         categoria: val.categoria,
-                        views: val.views
+                        views: val.views,
+                        date: val.date
                     }
                 })
                 res.render("single", {noticia: resposta, postsTop:postsTop})
@@ -126,9 +124,9 @@ app.post("/admin/login", (req, res)=>{
 })
 
 app.post("/admin/cadastro", (req, res)=>{
-    
-    console.log(req.body.titulo_noticia)
-    
+    var dateTime = require('node-datetime');
+    var dt = dateTime.create();
+    var formatted = dt.format('d-m-Y');
     Posts.create({
         titulo:req.body.titulo_noticia,
         imagem: req.body.url_imagem,
@@ -136,9 +134,11 @@ app.post("/admin/cadastro", (req, res)=>{
         conteudo: req.body.noticia,
         slug: req.body.slug,
         autor: "Admin",
-        views: 0
-
+        views: 0,
+        date: formatted
     });
+
+    res.redirect("/admin/login")
 
 })
 
@@ -159,10 +159,10 @@ app.get("/admin/login", (req, res)=>{
                     id: val._id,
                     titulo: val.titulo,
                     conteudo: val.conteudo,
+                    descricaoCurta: val.conteudo.substr(0,100),
                     imagem: val.imagem,
                     slug: val.slug,
                     categoria: val.categoria,
-                    views: val.views
                 }
             })
             res.render("admin-painel", {posts:posts})
