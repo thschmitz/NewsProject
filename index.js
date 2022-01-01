@@ -1,12 +1,11 @@
 const express = require('express');
 const mongoose = require("mongoose")
 var bodyParser = require("body-parser")
-const fs = require("fs")
 const path = require("path")
 const app = express();
 const fileupload = require("express-fileupload")
 const Posts = require("./Posts.js")
-
+const fs = require("fs")
 var session = require("express-session") // sessao fixada
 
 mongoose.connect("mongodb+srv://root:uN8HRyTYQ9nc268v@cluster0.aqlj3.mongodb.net/dankicode?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology:true}).then(function(){
@@ -19,6 +18,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+app.use(fileupload({
+    useTempFiles: true,
+    tempFileDir: path.join(__dirname, "temp")
+}))
 
                    // senha da sessao          
 app.use(session({secret: "keyboard cat", cookie: {maxAge: 60000}}))
@@ -127,9 +131,19 @@ app.post("/admin/cadastro", (req, res)=>{
     var dateTime = require('node-datetime');
     var dt = dateTime.create();
     var formatted = dt.format('d-m-Y');
+
+    let formato = req.files.arquivo.name.split(".")
+    var imagem = "";
+    if(formato[formato.length - 1] == "jpg"){
+        imagem = new Date().getTime()+".jpg"
+        req.files.arquivo.mv(__dirname+"/public/images/" + imagem)
+    } else {
+        fs.unlinkSync(req.files.arquivo.tempFilePath);
+    }
+
     Posts.create({
         titulo:req.body.titulo_noticia,
-        imagem: req.body.url_imagem,
+        imagem: "http://localhost:3000/public/images/"+imagem,
         categoria: 'Nenhuma',
         conteudo: req.body.noticia,
         slug: req.body.slug,
