@@ -21,6 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
                    // senha da sessao          
 app.use(session({secret: "keyboard cat", cookie: {maxAge: 60000}}))
 
@@ -125,9 +126,8 @@ app.post("/admin/login", (req, res)=>{
 })
 
 app.post("/admin/cadastro", (req, res)=>{
-
-    console.log(req.body.arquivo)
-    res.redirect("/admin/login")
+    
+    console.log(req.body.titulo_noticia)
     
     Posts.create({
         titulo:req.body.titulo_noticia,
@@ -149,6 +149,7 @@ app.get("/admin/deletar/:id", (req, res)=>{
 })
 
 app.get("/admin/login", (req, res)=>{
+
     if (req.session.login == null){
         res.render("admin-login")
     }else{
