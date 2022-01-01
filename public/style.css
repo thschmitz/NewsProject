@@ -1,0 +1,401 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+header {
+    padding: 8px 0;
+    background-color: #0AACDC;
+    text-align: center;
+}
+
+.center{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2%;
+    display:flex;
+}
+
+.logo h2{
+    color:white;
+}
+
+.logo a{
+    color:white;
+    text-decoration: none;
+}
+
+.logo{
+    text-align: left;
+    width: 50%;
+}
+
+.form-busca{
+    width: 50%;
+    text-align: right;
+}
+.form-busca form{
+    display: inline-block;
+    max-width: 200px;
+    position: relative;
+}
+
+.form-busca i{
+    position: absolute;
+    left: 6px;
+    top: 3px;
+    color: white;
+}
+
+.form-busca input{
+    background-color: #008BB4;
+    padding-left: 30px;
+    width: 100%;
+    border: none;
+    height: 25px;
+    color:white;
+    border-radius: 10px;
+}
+
+::placeholder{
+        color:white;
+        opacity: 1;
+    }
+:-ms-input-placeholder{
+    color:white;
+}
+
+::-ms-input-placeholder{
+    color:white;
+}
+
+
+section.noticia-destaque{
+    padding: 40px 0;
+}
+
+.img-destaque{
+    width: 100%;
+    position:relative;
+}
+
+section.noticia-destaque > .center{
+    max-width: 960px;
+}
+
+.img-destaque img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+.title-destaque-descricao{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    max-width: 600px;
+    color:white;
+    z-index: 2;
+    padding-bottom: 80px;
+}
+
+.title-destaque-descricao h2{
+    font-size: 60px;
+    margin-left: 40px;
+    color:white;
+    border-bottom: none;
+}
+
+.title-destaque-descricao a{
+    text-decoration: none;
+}
+
+.title-destaque-descricao p{
+    font-weight: lighter;
+    padding-left: 40px;
+    padding-top: 10px;
+    max-width: 85%;
+}
+
+.overlay-destaque{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 1;
+    border-radius: 20px;
+}
+
+.feito-por{
+    display:flex;
+    position: absolute;
+    top: 0;
+    padding: 40px;
+    z-index: 2;
+}
+
+.icone img{
+    width: 40px;
+}
+
+.feito-por h2{
+    padding-left: 10px;
+    padding-top: 6px;
+    color:white;
+}
+
+section.outras-noticias{
+    background-color: #EAEAEA;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+section.outras-noticias h2{
+    font-size: 54px;
+}
+
+.ultimas{
+    width: 60%;
+    padding: 0 10px;
+    height: 100%;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.box-ultima-single{
+    width: 48%;
+    margin-right: 2%;
+    background-color: white;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    height: 100%;
+    text-align: left;
+    flex-wrap: wrap;
+
+}
+
+.box-ultima-single img{
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.box-ultima-single h3{
+    font-size: 16px;
+    color:#33439B;
+    margin: 20px 0;
+}
+
+.conteudo-noticia-single{
+    padding: 20px;
+    flex-wrap: wrap;
+
+}
+
+.mais-lidas{
+    width: 40%;
+    height: 100%;
+    background-color: white;
+    flex-wrap: wrap;
+}
+
+.mais-lidas>h3{
+    background-color: #3F51B5;
+    color:white;
+    text-align: center;
+    padding: 10px 8px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.box-ultima-single p{
+    color:#7B8591;
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.conteudo-noticia-single h2{
+    color:#303336;
+    font-size: 28px !important;
+}
+
+.box-ultima-single a{
+    display:block;
+    width: 150px;
+    height: 56px;
+    border: 1px solid #EBEBEB;
+    color:#0AACDC;
+    text-decoration: none;
+    line-height: 56px; 
+    text-align: center;
+    font-size: 19px;
+    border-radius: 10px;
+}
+
+.mais-lidas-noticia-single{
+    text-align: left;
+    display:flex;
+    padding: 20px;
+}
+
+.mais-lidas-noticia-single img{
+    width: 40%;
+}
+
+.mais-lidas-noticia-single .texto-mais-lido-single{
+    width: 60%;
+    padding: 0 20px;
+}
+
+.texto-mais-lido-single h4{
+    color:#40BE65;
+    letter-spacing: 2.5px;
+}
+
+.texto-mais-lido-single p{
+    padding-top: 5px;
+    color: #7B8591;
+    font-size: 16px;
+}
+
+.texto-mais-lido-single a{
+    margin-top: 10px;
+    display:block;
+    width: 121px;
+    height: 36px;
+    border: 1px solid #EBEBEB;
+    text-decoration: none;
+    color: #0AACDC;
+    border-radius: 10px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+footer{
+    background-color: #0AACDC;
+    text-align: center;
+    padding: 8px 0;
+    color: white;
+
+}
+
+
+section.noticia{
+    padding: 20px 0;
+    background-color: #EAEAEA;
+}
+
+.noticia-single{
+    padding:20px;
+    background-color: white;
+    border-radius: 10px;
+    width: 58%;
+    margin-right: 2%;
+}
+
+.mais-lidas{
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+
+.noticia-single h2{
+    color:#303336;
+    font-size: 42px;
+    margin: 10px 0;
+}
+
+.noticia-single span{
+    letter-spacing: 3.2px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+    color: #858585
+}
+
+.noticia-single p{
+    color: #7B8591;
+    font-size: 15px;
+    line-height: 26px;
+    margin-top: 15px;
+}
+
+.noticia-single h3{
+    color:#7B8591;
+    font-size: 33px;
+    margin: 10px 0;
+}
+
+.login-footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.login-campos{
+    text-align: center;
+    margin-top: 10%;
+}
+
+.login-campos input{
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    font-weight: bold;
+
+}
+
+
+.login-escrito ::placeholder{
+    color:black;
+}
+
+.login-titulo{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+
+@media screen and (max-width: 768px){
+    .logo{
+        text-align: center;
+    }
+    .noticia-single{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .form-busca{
+        width: 100%;
+    }
+    .form-busca{
+        text-align: center;
+    }
+
+    .title-destaque-descricao h2{
+        font-size: 35px;
+        margin: 0 40px;
+    }
+    .title-destaque-descricao{
+        padding-bottom: 20px;
+        width: 100%;
+    }
+    .feito-por{
+        padding-top: 8px;
+    }
+    .box-ultima-single{width: 100%;}
+
+    .mais-lidas{
+        width: 100%;
+    }
+
+
+
+}
