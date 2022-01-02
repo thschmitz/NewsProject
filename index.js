@@ -100,7 +100,9 @@ app.get("/:slug", (req, res)=>{
                         slug: val.slug,
                         categoria: val.categoria,
                         views: val.views,
-                        date: val.date
+                        date: val.date,
+                        autor: val.autor, //
+                        categoria: val.categoria
                     }
                 })
                 res.render("single", {noticia: resposta, postsTop:postsTop})
@@ -134,6 +136,7 @@ app.post("/admin/cadastro", (req, res)=>{
 
     let formato = req.files.arquivo.name.split(".")
     var imagem = "";
+
     if(formato[formato.length - 1] == "jpg"){
         imagem = new Date().getTime()+".jpg"
         req.files.arquivo.mv(__dirname+"/public/images/" + imagem)
@@ -144,10 +147,10 @@ app.post("/admin/cadastro", (req, res)=>{
     Posts.create({
         titulo:req.body.titulo_noticia,
         imagem: "http://localhost:3000/public/images/"+imagem,
-        categoria: 'Nenhuma',
+        categoria: req.body.categoria,
         conteudo: req.body.noticia,
         slug: req.body.slug,
-        autor: "Admin",
+        autor: req.body.autor,
         views: 0,
         date: formatted
     });

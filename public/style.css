@@ -362,6 +362,13 @@ section.noticia{
     font-size: 20px;
 }
 
+.autor-nome{
+    margin-top: 10px;
+}
+
+.noticia-single img{
+    margin-top: 10px;
+}
 
 @media screen and (max-width: 768px){
     .logo{

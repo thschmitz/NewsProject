@@ -53,6 +53,14 @@
         textarea{
             resize:none
         }
+
+        fieldset{
+            margin-bottom: 20px
+        }
+
+        #categorias{
+            margin: 10px;
+        }
     </style>
     <body>
         <div class="header-painel">
@@ -60,8 +68,11 @@
         </div>
         <form enctype="multipart/form-data" method="post" action="/admin/cadastro">
             <input type="text" name="titulo_noticia" placeholder="Titulo da noticia"/>
+            <input type="text" name="autor" placeholder="Autor"/>
             <input type="text" name="slug" placeholder="Slug"/>
             <input type="file" name="arquivo" />
+            <input type="text" name="categoria" placeholder="Categoria"/>
+
             <textarea name="noticia" placeholder="noticia"></textarea>
             <input type="submit" name="acao" value="Cadastrar"/>
         </form>
@@ -75,6 +86,7 @@
                 <a href="/admin/deletar/<%= posts[i].id %>">(X)</a>
             </div>
         <% } %>
+
     </body>
 
     
