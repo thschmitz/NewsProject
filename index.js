@@ -146,7 +146,7 @@ app.post("/admin/cadastro", (req, res)=>{
 
     Posts.create({
         titulo:req.body.titulo_noticia,
-        imagem: "http://localhost:3000/public/images/"+imagem,
+        imagem: "http://localhost:5000/public/images/"+imagem,
         categoria: req.body.categoria,
         conteudo: req.body.noticia,
         slug: req.body.slug,
@@ -189,6 +189,6 @@ app.get("/admin/login", (req, res)=>{
     }
 })
 
-app.listen(3000,()=>{
+app.listen(5000,()=>{
     console.log("Server rodando!");
 })
