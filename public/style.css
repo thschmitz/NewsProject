@@ -240,6 +240,8 @@ section.outras-noticias h2{
     text-align: left;
     display:flex;
     padding: 20px;
+    flex-wrap: wrap;
+
 }
 
 .mais-lidas-noticia-single img{
@@ -406,3 +408,18 @@ section.noticia{
 
 
 }
+
+@media screen and (max-width: 1050px){
+    .mais-lidas-noticias img{
+        width: 100%;
+    }
+
+    .mais-lidas-noticia-single .texto-mais-lido-single{
+        width: 100%;
+        margin-top: 10px;
+    }
+
+
+}
+
+
