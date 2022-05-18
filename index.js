@@ -8,7 +8,7 @@ const Posts = require("./Posts.js")
 const fs = require("fs")
 var session = require("express-session") // sessao fixada
 
-mongoose.connect("mongodb+srv://root:uN8HRyTYQ9nc268v@cluster0.aqlj3.mongodb.net/dankicode?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology:true}).then(function(){
+mongoose.connect("mongodb+srv://ThomasSchmitz:thomas05@cluster0.qrzac.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology:true}).then(function(){
     console.log("Conectado com sucesso");      // Conexao com o banco de dados
 }).catch(function(err){
     console.log(err.message);
